@@ -1,3 +1,4 @@
+$(cat << 'EOT'
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -29,7 +30,7 @@ body{font-family:'Inter',sans-serif;background:#fff;color:#1f2937;line-height:1.
 </div>
 <div class="container">
   <h2 data-de="Abfallwirtschaftlichkeit" data-en="Waste economics" data-ru="Экономика отходов"></h2>
-  <p data-de="Verluste ≈ 10,5 Mio. Euro pro Jahr in einem Werk." data-en="Losses ≈ €10.5 million per year at one plant." data-ru="Потери ≈ 10,5 млн евро в год на одном предприятии."></p>
+  <p data-de="Verluste ≈ 10,5 Mio. Euro pro Jahr in einem Werk [2]." data-en="Losses ≈ €10.5 million per year at one plant [2]." data-ru="Потери ≈ 10,5 млн евро в год на одном предприятии [2]."></p>
   <div class="cta-box">
     <h2 data-de="Erstberatung — kostenlos" data-en="First consultation — free" data-ru="Первая консультация — бесплатно"></h2>
     <a href="https://wa.me/4915258400610" class="btn-wa">WhatsApp</a>
@@ -46,3 +47,5 @@ setLang(localStorage.getItem('lang')||'de');
 </script>
 </body>
 </html>
+EOT
+)
