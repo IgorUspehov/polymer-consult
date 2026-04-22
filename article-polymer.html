@@ -36,8 +36,8 @@ ul li{margin-bottom:.5rem}
 <body>
 
 <div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('ru')">RU</button>
-  <button class="lang-btn" onclick="setLang('de')">DE</button>
+  <button class="lang-btn" onclick="setLang('ru')">RU</button>
+  <button class="lang-btn active" onclick="setLang('de')">DE</button>
   <button class="lang-btn" onclick="setLang('en')">EN</button>
 </div>
 
@@ -111,7 +111,7 @@ function setLang(lang){
   document.querySelectorAll('[data-'+lang+']').forEach(el=>el.innerHTML=el.getAttribute('data-'+lang));
   localStorage.setItem('lang',lang);
 }
-const saved=localStorage.getItem('lang')||'ru';
+const saved=localStorage.getItem('lang')||'de';
 setLang(saved);
 </script>
 </body>
