@@ -1,4 +1,27 @@
-$(cat << 'EOT'
-[Вставь сюда весь текст из твоего файла article-polymer.html]
-EOT
-)
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Recycling PA/PE | Polymer Consult</title>
+<style>
+ body{font-family:sans-serif;line-height:1.6;padding:20px}
+ .lang-bar{position:fixed;top:0;right:0;padding:10px;background:#0f3b2c}
+ .lang-btn{color:#fff;cursor:pointer;margin-left:5px;border:1px solid #fff;background:none;padding:2px 5px}
+</style>
+</head>
+<body>
+<div class="lang-bar">
+ <button class="lang-btn" onclick="setLang('de')">DE</button>
+ <button class="lang-btn" onclick="setLang('en')">EN</button>
+ <button class="lang-btn" onclick="setLang('ru')">RU</button>
+</div>
+<h1 data-de="Recycling von Barrierefolien" data-en="Barrier Film Recycling" data-ru="Рециклинг барьерных плёнок"></h1>
+<p data-de="Wirtschaftlichkeit der Wiederverwertung." data-en="Economics of recycling." data-ru="Экономика рециклинга."></p>
+<script>
+function setLang(l){
+ document.querySelectorAll('[data-'+l+']').forEach(el=>el.innerText=el.getAttribute('data-'+l));
+}
+setLang('de');
+</script>
+</body>
+</html>
