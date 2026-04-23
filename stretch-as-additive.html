@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><meta charset="UTF-8"><title>LLDPE-Additiv</title>
+<style>
+body { font-family: sans-serif; margin: 40px; line-height: 1.5; background: #f5f5f5; }
+.container { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 10px; }
+.lang-switch { text-align: right; margin-bottom: 20px; }
+.lang-btn { padding: 8px 16px; margin: 0 5px; cursor: pointer; background: #ddd; border: none; border-radius: 5px; }
+.lang-btn.active { background: #007bff; color: white; }
+.lang-content { display: none; }
+.lang-content.active { display: block; }
+a { color: #007bff; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="lang-switch">
+<button class="lang-btn" data-lang="de">🇩🇪 Deutsch</button>
+<button class="lang-btn" data-lang="en">🇬🇧 English</button>
+<button class="lang-btn" data-lang="ru">🇷🇺 Русский</button>
+</div>
+<div id="lang-de" class="lang-content"><h1>LLDPE-Additiv</h1><h2>LLDPE als Additiv für Glanz, Fließfähigkeit, Farbe</h2><p>Für Bürstenbeläge, Gartengitter, Kisten, Rohre. Zugabe von 10-20% LLDPE verbessert Fließfähigkeit um 15-30% und Glanz um 20%.</p></div>
+<div id="lang-en" class="lang-content"><h1>LLDPE Additive</h1><h2>LLDPE as additive for gloss, flowability, color</h2><p>For bristle coatings, garden mesh, crates, pipes. Adding 10-20% LLDPE improves flowability by 15-30% and gloss by 20%.</p></div>
+<div id="lang-ru" class="lang-content"><h1>Стрейч как добавка</h1><h2>Стрейч как добавка для блеска, текучести, цвета</h2><p>Для щетинистых покрытий, сетки садовой, ящиков, труб. Добавка 10-20% LLDPE улучшает текучесть на 15-30% и блеск на 20%.</p></div>
+</div>
+<script>
+const btns=document.querySelectorAll('.lang-btn'),contents=document.querySelectorAll('.lang-content');
+function setLang(l){contents.forEach(c=>c.classList.remove('active'));document.getElementById('lang-'+l).classList.add('active');
+btns.forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[data-lang="'+l+'"]').classList.add('active');
+localStorage.setItem('preferred_lang',l);}
+btns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+setLang(localStorage.getItem('preferred_lang')||'de');
+</script>
+</body></html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><meta charset="UTF-8"><title>Große Spritzgussteile</title>
+<style>
+body { font-family: sans-serif; margin: 40px; line-height: 1.5; background: #f5f5f5; }
+.container { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 10px; }
+.lang-switch { text-align: right; margin-bottom: 20px; }
+.lang-btn { padding: 8px 16px; margin: 0 5px; cursor: pointer; background: #ddd; border: none; border-radius: 5px; }
+.lang-btn.active { background: #007bff; color: white; }
+.lang-content { display: none; }
+.lang-content.active { display: block; }
+a { color: #007bff; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="lang-switch">
+<button class="lang-btn" data-lang="de">🇩🇪 Deutsch</button>
+<button class="lang-btn" data-lang="en">🇬🇧 English</button>
+<button class="lang-btn" data-lang="ru">🇷🇺 Русский</button>
+</div>
+<div id="lang-de" class="lang-content"><h1>Große Spritzgussteile</h1><h2>Große Spritzgussteile aus LLDPE</h2><p>Abdeckungen, Fässer. Rezeptur: 50% Recyclat + 50% HDPE. Formtemperatur 40-50°C. Nachdruckzeit +30%. Wanddicken bis 8 mm problemlos.</p></div>
+<div id="lang-en" class="lang-content"><h1>Large Injection Molded Parts</h1><h2>Large injection molded parts from LLDPE</h2><p>Covers, drums. Formulation: 50% recyclate + 50% HDPE. Mold temperature 40-50°C. Hold pressure time +30%. Wall thickness up to 8 mm without issues.</p></div>
+<div id="lang-ru" class="lang-content"><h1>Крупные литьевые детали</h1><h2>Крупные литьевые детали из LLDPE</h2><p>Крышки, бочки. Рецептура: 50% рециклата + 50% ПНД. Температура формы 40-50°C. Время выдержки под давлением +30%. Толщина стенки до 8 мм без проблем.</p></div>
+</div>
+<script>
+const btns=document.querySelectorAll('.lang-btn'),contents=document.querySelectorAll('.lang-content');
+function setLang(l){contents.forEach(c=>c.classList.remove('active'));document.getElementById('lang-'+l).classList.add('active');
+btns.forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[data-lang="'+l+'"]').classList.add('active');
+localStorage.setItem('preferred_lang',l);}
+btns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+setLang(localStorage.getItem('preferred_lang')||'de');
+</script>
+</body></html>

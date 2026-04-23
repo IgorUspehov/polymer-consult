@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><meta charset="UTF-8"><title>Einfassungsband</title>
+<style>
+body { font-family: sans-serif; margin: 40px; line-height: 1.5; background: #f5f5f5; }
+.container { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 10px; }
+.lang-switch { text-align: right; margin-bottom: 20px; }
+.lang-btn { padding: 8px 16px; margin: 0 5px; cursor: pointer; background: #ddd; border: none; border-radius: 5px; }
+.lang-btn.active { background: #007bff; color: white; }
+.lang-content { display: none; }
+.lang-content.active { display: block; }
+a { color: #007bff; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="lang-switch">
+<button class="lang-btn" data-lang="de">🇩🇪 Deutsch</button>
+<button class="lang-btn" data-lang="en">🇬🇧 English</button>
+<button class="lang-btn" data-lang="ru">🇷🇺 Русский</button>
+</div>
+<div id="lang-de" class="lang-content"><h1>Einfassungsband</h1><h2>Einfassungsband für Beete: HDPE, PP, LDPE</h2><p>HDPE: Steif, schwarz, MFI 0,8-1,5. PP: günstiger, spröde bei Kälte. LDPE: flexibel, für Kurven. Extrusion mit 190-210°C.</p></div>
+<div id="lang-en" class="lang-content"><h1>Curb Tape</h1><h2>Curb tape for flower beds: HDPE, PP, LDPE</h2><p>HDPE: rigid, black, MFI 0.8-1.5. PP: cheaper, brittle at cold. LDPE: flexible, for curves. Extrusion at 190-210°C.</p></div>
+<div id="lang-ru" class="lang-content"><h1>Бардюрная лента</h1><h2>Бардюрная лента для клумб: ПНД, ПП, ПВД</h2><p>ПНД: жесткая, черная, MFI 0,8-1,5. ПП: дешевле, хрупкий на морозе. ПВД: гибкая, для изгибов. Экструзия 190-210°C.</p></div>
+</div>
+<script>
+const btns=document.querySelectorAll('.lang-btn'),contents=document.querySelectorAll('.lang-content');
+function setLang(l){contents.forEach(c=>c.classList.remove('active'));document.getElementById('lang-'+l).classList.add('active');
+btns.forEach(b=>b.classList.remove('active'));document.querySelector('.lang-btn[data-lang="'+l+'"]').classList.add('active');
+localStorage.setItem('preferred_lang',l);}
+btns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+setLang(localStorage.getItem('preferred_lang')||'de');
+</script>
+</body></html>
