@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Садовая сетка из вторичных полимеров | Игорь Кряжев</title>
+    <meta name="description" content="Технология экструзии садовой сетки через плоскощелевую головку из вторичного HDPE, добавок LDPE, LLDPE и гранулята PA/LDPE. Полное руководство.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        /* Language Tabs */
+        .lang-tabs {
+            display: flex;
+            background: #2c3e50;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        .lang-btn {
+            background: #34495e;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: #ecf0f1;
+            transition: all 0.2s ease;
+            border-right: 1px solid #2c3e50;
+        }
+        .lang-btn.active {
+            background: #27ae60;
+            color: white;
+        }
+        .lang-btn:hover:not(.active) {
+            background: #2c3e50;
+        }
+        .lang-panel {
+            display: none;
+            padding: 30px 40px;
+            animation: fadeIn 0.3s ease;
+        }
+        .lang-panel.active-panel {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Typography */
+        h1 {
+            font-size: 1.8rem;
+            color: #27ae60;
+            border-left: 5px solid #27ae60;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        h2 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin: 25px 0 15px 0;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        h3 {
+            font-size: 1.2rem;
+            color: #34495e;
+            margin: 20px 0 10px 0;
+        }
+        .author {
+            background: #e8f5e9;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #2e7d32;
+        }
+        .info-block {
+            background: #f0f7ff;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px 12px;
+            text-align: left;
+        }
+        th {
+            background: #2c3e50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ecf0f1;
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .lang-panel { padding: 20px; }
+            .lang-btn { padding: 10px 16px; font-size: 0.85rem; }
+            h1 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="lang-tabs">
+        <button class="lang-btn active" data-lang="ru">🇷🇺 Русский</button>
+        <button class="lang-btn" data-lang="de">🇩🇪 Deutsch</button>
+        <button class="lang-btn" data-lang="en">🇬🇧 English</button>
+    </div>
+
+    <!-- RUSSIAN -->
+    <div id="lang-ru" class="lang-panel active-panel">
+        <h1>Садовая сетка из вторичных полимеров: технология экструзии через плоскощелевую головку</h1>
+        <div class="author">Автор: Игорь Кряжев, технолог-консультант по переработке вторичных полимеров</div>
+
+        <h2>1. Введение: что такое садовая сетка и как ее производят</h2>
+        <p>Садовая сетка используется для вьющихся растений, ограждения грядок, парников и защиты от птиц. В отличие от притеняющей сетки, которая ткется из нитей, садовая сетка формуется методом экструзии через плоскощелевую головку. Расплав полимера выдавливается через фильеру, формирующую ячеистую структуру, затем сетка охлаждается и наматывается в рулоны. Производство садовых решеток (так называется та же сетка с более крупной ячейкой) аналогично.</p>
+        <p>Основное сырье для садовой сетки - вторичный HDPE из канистр, в том числе агроканистр (канистры с полей из-под удобрений и средств защиты растений). Добавки - вторичный LDPE (ПВД) для эластичности и вторичный LLDPE из стрейч-пленки для повышения текучести и блеска. Также разработана технология использования гранулята из многослойных пленок PA/LDPE (колбасная оболочка). Этот гранулят содержит 10-15% полиамида, который придает сетке повышенную жесткость и износостойкость.</p>
+
+        <h2>2. Сырье для производства садовой сетки</h2>
+        <h3>2.1. Вторичный HDPE из канистр и агроканистр</h3>
+        <p>Агроканистры - это канистры из-под удобрений, пестицидов, гербицидов. Они имеют высокую остаточную загрязненность (до 5-10% химикатов, песка, земли). Технология подготовки включает: шредирование (дробление канистр без предварительной мойки) до фракции 20-40 мм, мойку горячей водой (80-90°C с добавкой щелочи NaOH 3-5% и ПАВ) в течение 20-30 минут для удаления химикатов и песка, флотационное разделение (отделение HDPE от PP-крышек и этикеток), сушку центрифугой до влажности 5-10%, затем горячим воздухом (80°C, 4-6 часов) до 0,2%, грануляцию на двухшнековом экструдере с фильтрацией 200-300 микрон для удаления остаточного песка. Готовая гранула HDPE из агроканистр имеет MFI 0,8-1,5, плотность 0,95-0,96 г/см³, зольность менее 0,5%.</p>
+
+        <h3>2.2. Добавка вторичного LDPE (ПВД) для эластичности</h3>
+        <p>Садовая сетка должна гнуться, не ломаться при натяжении и сворачивании в рулон. Чистый HDPE слишком жесткий, добавка 5-15% LDPE (из пленочных отходов, мешков) снижает жесткость и повышает эластичность. LDPE имеет MFI 2-4, плотность 0,918-0,925 г/см³. При введении 10% LDPE модуль упругости при изгибе снижается с 800 до 600 МПа, удлинение при разрыве возрастает с 50% до 150%.</p>
+
+        <h3>2.3. Добавка вторичного LLDPE из стрейч-пленки для текучести и блеска</h3>
+        <p>Стрейч-гранула (LLDPE) имеет MFI 2,5-4,0. Добавка 10-20% LLDPE повышает общий MFI смеси с 0,8-1,5 до 1,5-2,5. Это улучшает течение расплава в плоскощелевой головке, снижая давление на 15-25%. Блеск сетки увеличивается на 30-50% за счет более высокой аморфности LLDPE.</p>
+
+        <h3>2.4. Гранулят из многослойных пленок PA/LDPE</h3>
+        <p>Переработка колбасной оболочки (PA/LDPE, 10-15% полиамида) позволяет получить гранулят с уникальными свойствами. Полиамид придает сетке повышенную жесткость (модуль упругости до 1000 МПа) и износостойкость (абразивный износ снижен в 2-3 раза). Добавка 10-30% гранулята PA/LDPE в смесь HDPE повышает прочность на разрыв на 10-15%, но снижает удлинение (хрупкость). Оптимальная доля - 10-15%.</p>
+
+        <h2>3. Подготовка сырья и смешение</h2>
+        <p>Гранулы HDPE, LDPE, LLDPE и гранулята PA/LDPE (при использовании) смешиваются в сухом смесителе (турбулентном, лопастном) с добавками: УФ-стабилизатор (сажа 1-2% или HALS 0,5-1%), антиоксидант (Irganox 1010 0,2-0,3%), замасливатель (эрукамид 0,3-0,5%) для снижения трения сетки о направляющие станка. Время смешения - 5-10 минут при 30-40°C. Готовая смесь перегружается в бункер экструдера.</p>
+
+        <h2>4. Экструзия садовой сетки через плоскощелевую головку</h2>
+        <h3>4.1. Экструдер и температурный профиль</h3>
+        <p>Используется одношнековый экструдер (диаметр 45-90 мм, L/D 30-36) или двухшнековый для смесей с высоким содержанием наполнителей. Температурный профиль для смеси HDPE+LDPE+LLDPE:</p>
+        <ul>
+            <li>Зона 1 (загрузка): 160-180°C</li>
+            <li>Зона 2: 180-200°C</li>
+            <li>Зона 3: 200-220°C</li>
+            <li>Зона 4: 210-230°C</li>
+            <li>Головка: 200-220°C</li>
+        </ul>
+        <p>Для смесей с добавкой PA/LDPE температура в зоне 3-4 повышается на 10-20°C (до 230-240°C) для плавления полиамида.</p>
+
+        <h3>4.2. Плоскощелевая головка и формирование сетки</h3>
+        <p>Конструкция головки имеет систему каналов, формирующих ячеистую структуру. Расплав растекается по ширине головки (500-2000 мм) и выдавливается через фильеру с чередующимися продольными и поперечными щелями. Ячейка садовой сетки может быть квадратной (10х10, 20х20, 50х50 мм) или ромбовидной. Толщина нити сетки - 1-3 мм, ширина нити - 2-5 мм. Давление в головке для смеси с MFI 1,5-2,5 - 50-100 бар.</p>
+
+        <h3>4.3. Охлаждение и вытяжка</h3>
+        <p>Сетка выходит из головки и поступает на охлаждающие валы (каландры) с температурой 20-40°C. Три-четыре вала создают контролируемое охлаждение и вытяжку. Вытяжка (ориентация) сетки - 1:2-1:4. При вытяжке прочность сетки повышается на 30-50%, но эластичность снижается.</p>
+
+        <h2>5. Контроль качества садовой сетки</h2>
+        <ul>
+            <li>Ячейка сетки контролируется оптическим датчиком (камера) на выходе из каландров. Допустимое отклонение размера ячейки ±5%.</li>
+            <li>Толщина нити - лазерный микрометр. Допуск ±0,1 мм для нити 2 мм.</li>
+            <li>Прочность на разрыв полоски сетки шириной 100 мм - не менее 200 Н (20 кг).</li>
+            <li>Удлинение при разрыве - 50-150%.</li>
+        </ul>
+
+        <h2>6. УФ-стабилизация садовой сетки</h2>
+        <p>Садовая сетка эксплуатируется на улице. Требования к УФ-стойкости: черная сетка (сажа 1-2%) - срок службы 10-20 лет. Цветная сетка (HALS 0,5-1,0%) - срок службы 5-10 лет. Испытания в камере УФ (1000 часов, стандарт ISO 4892-3) должны показать снижение прочности не более 30%.</p>
+
+        <h2>7. Преимущества использования гранулята PA/LDPE из колбасной оболочки</h2>
+        <p>Многослойные пленки PA/LDPE при механической переработке без разделения слоев дают гранулят с 10-15% полиамида. Этот гранулят повышает жесткость садовой сетки: модуль упругости возрастает с 600 до 800-1000 МПа. Износостойкость увеличивается в 2-3 раза. Оптимальная дозировка гранулята PA/LDPE - 10-15% от массы.</p>
+
+        <h2>8. Типичные дефекты садовой сетки из рециклата</h2>
+        <ul>
+            <li><strong>Разрыв ячейки:</strong> недостаток LDPE (менее 5%) или слишком высокая вытяжка (более 1:4). Решение - увеличить долю ПВД до 10-15%, снизить вытяжку до 1:2.</li>
+            <li><strong>Неравномерная ячейка:</strong> низкий MFI смеси. Решение - добавить 10-20% LLDPE.</li>
+            <li><strong>Сетка липнет к вальцам:</strong> недостаточное охлаждение или отсутствие замасливателя. Решение - снизить температуру вальцов до 20°C, добавить эрукамид 0,3-0,5%.</li>
+            <li><strong>Желтизна через 1-2 года:</strong> недостаточная УФ-стабилизация. Решение - добавить сажу 2% или HALS 1%.</li>
+        </ul>
+
+        <h2>9. Низкочастотные ключевые запросы (встроены в текст)</h2>
+        <div class="info-block">
+            <p>✓ садовая сетка из HDPE рециклата технология экструзии через плоскощелевую головку<br>
+            ✓ подготовка агроканистр для производства садовой сетки шредирование мойка грануляция<br>
+            ✓ добавка вторичного LLDPE из стрейч-пленки для повышения текучести MFI 1.5-2.5<br>
+            ✓ использование гранулята PA/LDPE колбасной оболочки в садовой сетке дозировка 10-15 процентов<br>
+            ✓ вытяжка садовой сетки из рециклата на каландрах коэффициент 1 к 2-1 к 4<br>
+            ✓ ячейка садовой сетки 20х20 мм контроль оптическим датчиком допустимое отклонение 5 процентов<br>
+            ✓ УФ-стабилизация садовой сетки сажей 1-2 процента срок службы 10-20 лет</p>
+        </div>
+
+        <h2>10. Заключение</h2>
+        <p>Производство садовой сетки из вторичных полимеров - экономически выгодная технология с полным циклом подготовки сырья. Правильный подбор смеси HDPE с добавками LDPE (5-15%), LLDPE (10-20%) и гранулята PA/LDPE (10-15%) обеспечивает баланс жесткости, эластичности и срока службы. Контроль MFI смеси в диапазоне 1,5-2,5 стабильное давление в головке 50-100 бар. УФ-стабилизация сажей 1-2% гарантирует 10-20 лет эксплуатации.</p>
+
+        <footer>© Игорь Кряжев – технологическое консультирование по переработке полимеров, 2026</footer>
+    </div>
+
+    <!-- GERMAN -->
+    <div id="lang-de" class="lang-panel">
+        <h1>Gartenetz aus Sekundärkunststoffen: Extrusionstechnologie mit Flachdüse</h1>
+        <div class="author">Autor: Igor Kryazhev, Technologieberater für Sekundärkunststoff-Recycling</div>
+
+        <h2>1. Einleitung: Was ist ein Gartenetz und wie wird es hergestellt?</h2>
+        <p>Gartenetze werden für Kletterpflanzen, Beeteinfassungen, Gewächshäuser und Vogelschutz verwendet. Im Gegensatz zu Verschattungsnetzen werden Gartenetze durch Extrusion mit einer Flachdüse geformt. Die Polymerschmelze wird durch eine Düse gepresst, die eine Zellstruktur formt. Das Netz wird gekühlt und aufgewickelt.</p>
+        <p>Hauptrohstoff ist recycelter HDPE aus Kanistern, einschließlich Agrokanistern (Feldkanister für Düngemittel und Pflanzenschutzmittel). Zusätze sind recyceltes LDPE für Elastizität und recyceltes LLDPE aus Stretchfolie zur Verbesserung der Fließfähigkeit und des Glanzes. Auch Granulat aus PA/LDPE-Mehrschichtfolien (Wursthülle) wird verwendet – es enthält 10-15% Polyamid für erhöhte Steifigkeit und Verschleißfestigkeit.</p>
+
+        <h2>2. Rohstoffe für die Gartenetzproduktion</h2>
+        <h3>2.1. Recycelter HDPE aus Kanistern und Agrokanistern</h3>
+        <p>Agrokanister haben hohe Restverunreinigung (5-10% Chemikalien, Sand, Erde). Vorbereitung: Schreddern auf 20-40 mm, Heißwäsche (80-90°C mit NaOH 3-5% und Tensiden, 20-30 min), Flotation, Zentrifugentrocknung auf 5-10% Restfeuchte, Heißlufttrocknung auf 0,2%, Granulierung mit Filtration 200-300 Mikrometer. Fertiges HDPE-Granulat aus Agrokanistern hat MFI 0,8-1,5, Dichte 0,95-0,96 g/cm³, Aschegehalt unter 0,5%.</p>
+
+        <h3>2.2. LDPE-Zusatz für Elastizität</h3>
+        <p>Reiner HDPE ist zu spröde. 5-15% LDPE (aus Folienabfällen) reduzieren die Steifigkeit. LDPE hat MFI 2-4, Dichte 0,918-0,925 g/cm³. Bei 10% LDPE sinkt der Biege-E-Modul von 800 auf 600 MPa, die Bruchdehnung steigt von 50% auf 150%.</p>
+
+        <h3>2.3. LLDPE-Zusatz aus Stretchfolie für Fließfähigkeit und Glanz</h3>
+        <p>Stretch-Granulat (LLDPE) hat MFI 2,5-4,0. Ein Zusatz von 10-20% erhöht den Gesamt-MFI der Mischung von 0,8-1,5 auf 1,5-2,5. Der Druck in der Flachdüse sinkt um 15-25%. Der Netzglanz steigt um 30-50%.</p>
+
+        <h3>2.4. Granulat aus PA/LDPE-Mehrschichtfolien</h3>
+        <p>Recycling von Wursthüllen (PA/LDPE, 10-15% Polyamid) ergibt Granulat mit erhöhter Steifigkeit (E-Modul bis 1000 MPa) und Verschleißfestigkeit (2-3-fach). Optimaler Anteil in der Mischung: 10-15%.</p>
+
+        <h2>3. Rohstoffvorbereitung und Mischung</h2>
+        <p>HDPE-, LDPE-, LLDPE- und PA/LDPE-Granulate werden im Trockenmischer mit UV-Stabilisator (Ruß 1-2% oder HALS 0,5-1%), Antioxidans (Irganox 1010 0,2-0,3%) und Gleitmittel (Erucamid 0,3-0,5%) gemischt. Mischzeit 5-10 min bei 30-40°C.</p>
+
+        <h2>4. Extrusion der Gartenetze mit Flachdüse</h2>
+        <h3>4.1. Extruder und Temperaturprofil</h3>
+        <p>Einschneckenextruder (Durchmesser 45-90 mm, L/D 30-36) oder Doppelschneckenextruder. Temperaturprofil für HDPE+LDPE+LLDPE: Zone 1: 160-180°C, Zone 2: 180-200°C, Zone 3: 200-220°C, Zone 4: 210-230°C, Düsenkopf: 200-220°C. Bei PA/LDPE-Zusatz werden Zone 3-4 um 10-20°C auf 230-240°C erhöht.</p>
+
+        <h3>4.2. Flachdüse und Netzformung</h3>
+        <p>Die Düsenkonstruktur hat Kanäle für eine Zellstruktur. Die Schmelze verteilt sich über die Breite (500-2000 mm) und wird durch eine Düse mit wechselnden Längs- und Querschlitzen gepresst. Maschenweite: 10x10, 20x20 oder 50x50 mm quadratisch oder rautenförmig. Fadenstärke 1-3 mm, Fadenbreite 2-5 mm. Druck im Düsenkopf bei MFI 1,5-2,5: 50-100 bar.</p>
+
+        <h3>4.3. Kühlung und Verstreckung</h3>
+        <p>Das Netz läuft über Kühlwalzen (20-40°C, 3-4 Walzen). Verstreckung (Orientierung) 1:2 bis 1:4. Festigkeit steigt um 30-50%, Elastizität sinkt.</p>
+
+        <h2>5. Qualitätskontrolle</h2>
+        <ul>
+            <li>Maschenweite – optischer Sensor, Toleranz ±5%.</li>
+            <li>Fadenstärke – Lasermikrometer, Toleranz ±0,1 mm.</li>
+            <li>Reißfestigkeit (100 mm Streifen) – min. 200 N.</li>
+            <li>Bruchdehnung – 50-150%.</li>
+        </ul>
+
+        <h2>6. UV-Stabilisierung</h2>
+        <p>Schwarzes Netz (Ruß 1-2%): Lebensdauer 10-20 Jahre. Farbiges Netz (HALS 0,5-1%): 5-10 Jahre. UV-Kammertest (1000 h, ISO 4892-3): Festigkeitsverlust max. 30%.</p>
+
+        <h2>7. Vorteile von PA/LDPE-Granulat aus Wursthüllen</h2>
+        <p>PA/LDPE-Granulat erhöht die Steifigkeit (E-Modul von 600 auf 800-1000 MPa) und die Verschleißfestigkeit (2-3-fach). Optimale Dosierung 10-15%.</p>
+
+        <h2>8. Typische Defekte</h2>
+        <ul>
+            <li><strong>Maschenriss:</strong> zu wenig LDPE (<5%) oder zu starke Verstreckung (>1:4). Lösung: LDPE auf 10-15% erhöhen, Verstreckung auf 1:2 reduzieren.</li>
+            <li><strong>Ungleiche Maschen:</strong> niedriger MFI. Lösung: 10-20% LLDPE zugeben.</li>
+            <li><strong>Netz klebt an Walzen:</strong> unzureichende Kühlung oder fehlendes Gleitmittel. Lösung: Walzentemperatur auf 20°C senken, Erucamid 0,3-0,5% zugeben.</li>
+            <li><strong>Gelbfärbung nach 1-2 Jahren:</strong> unzureichende UV-Stabilisierung. Lösung: 2% Ruß oder 1% HALS.</li>
+        </ul>
+
+        <h2>9. Schlüsselwörter mit niedriger Frequenz</h2>
+        <div class="info-block">
+            <p>✓ Gartenetz aus HDPE-Recyclat Extrusion mit Flachdüse<br>
+            ✓ Agrokanister Vorbereitung Schreddern Waschen Granulierung<br>
+            ✓ LLDPE aus Stretchfolie Zusatz für Fließfähigkeit MFI 1,5-2,5<br>
+            ✓ PA/LDPE Granulat aus Wursthülle im Gartenetz Dosierung 10-15%<br>
+            ✓ Verstreckung Gartenetz aus Recyclat auf Kalandern 1:2-1:4<br>
+            ✓ Maschenweite 20x20 mm optische Kontrolle Toleranz 5%<br>
+            ✓ UV-Stabilisierung mit Ruß 1-2% Lebensdauer 10-20 Jahre</p>
+        </div>
+
+        <h2>10. Fazit</h2>
+        <p>Die Herstellung von Gartenetzen aus Sekundärkunststoffen ist wirtschaftlich. Die richtige Mischung aus HDPE mit LDPE (5-15%), LLDPE (10-20%) und PA/LDPE-Granulat (10-15%) sorgt für die optimale Balance aus Steifigkeit, Elastizität und Lebensdauer. Die Kontrolle des MFI der Mischung im Bereich 1,5-2,5 gewährleistet stabilen Druck von 50-100 bar im Düsenkopf. UV-Stabilisierung mit 1-2% Ruß garantiert 10-20 Jahre Nutzungsdauer.</p>
+
+        <footer>© Igor Kryazhev – Technologieberatung für Kunststoffrecycling, 2026</footer>
+    </div>
+
+    <!-- ENGLISH -->
+    <div id="lang-en" class="lang-panel">
+        <h1>Garden Netting from Recycled Polymers: Flat Die Extrusion Technology</h1>
+        <div class="author">Author: Igor Kryazhev, Technology Consultant for Secondary Polymer Processing</div>
+
+        <h2>1. Introduction: What is garden netting and how is it produced?</h2>
+        <p>Garden netting is used for climbing plants, bed fencing, greenhouses, and bird protection. Unlike shade nets that are woven from threads, garden netting is formed by extrusion through a flat die. The polymer melt is pressed through a die that forms a cellular structure, then cooled and wound into rolls.</p>
+        <p>The main raw material is recycled HDPE from canisters, including agro-canisters (field canisters for fertilizers and pesticides). Additives include recycled LDPE for elasticity and recycled LLDPE from stretch film for improved flow and gloss. Granulate from PA/LDPE multilayer films (sausage casing) is also used – it contains 10-15% polyamide for increased stiffness and wear resistance.</p>
+
+        <h2>2. Raw materials for garden netting production</h2>
+        <h3>2.1. Recycled HDPE from canisters and agro-canisters</h3>
+        <p>Agro-canisters have high residual contamination (5-10% chemicals, sand, dirt). Preparation: shredding to 20-40 mm, hot washing (80-90°C with 3-5% NaOH and surfactants, 20-30 min), flotation, centrifuge drying to 5-10% moisture, hot air drying to 0.2%, pelletizing with 200-300 micron filtration. Finished HDPE granulate from agro-canisters has MFI 0.8-1.5, density 0.95-0.96 g/cm³, ash content below 0.5%.</p>
+
+        <h3>2.2. LDPE additive for elasticity</h3>
+        <p>Pure HDPE is too brittle. 5-15% LDPE (from film waste) reduces stiffness. LDPE has MFI 2-4, density 0.918-0.925 g/cm³. At 10% LDPE, flexural modulus decreases from 800 to 600 MPa, elongation at break increases from 50% to 150%.</p>
+
+        <h3>2.3. LLDPE additive from stretch film for flow and gloss</h3>
+        <p>Stretch granulate (LLDPE) has MFI 2.5-4.0. Adding 10-20% increases the total MFI of the mixture from 0.8-1.5 to 1.5-2.5. Pressure in the flat die decreases by 15-25%. Net gloss increases by 30-50%.</p>
+
+        <h3>2.4. Granulate from PA/LDPE multilayer films</h3>
+        <p>Recycling sausage casings (PA/LDPE, 10-15% polyamide) yields granulate with increased stiffness (modulus up to 1000 MPa) and wear resistance (2-3 times). Optimal content in the mixture: 10-15%.</p>
+
+        <h2>3. Raw material preparation and blending</h2>
+        <p>HDPE, LDPE, LLDPE, and PA/LDPE granulates are mixed in a dry mixer with UV stabilizer (carbon black 1-2% or HALS 0.5-1%), antioxidant (Irganox 1010 0.2-0.3%), and slip agent (erucamide 0.3-0.5%). Mixing time 5-10 min at 30-40°C.</p>
+
+        <h2>4. Garden netting extrusion with flat die</h2>
+        <h3>4.1. Extruder and temperature profile</h3>
+        <p>Single screw extruder (diameter 45-90 mm, L/D 30-36) or twin screw for filled compounds. Temperature profile for HDPE+LDPE+LLDPE: Zone 1: 160-180°C, Zone 2: 180-200°C, Zone 3: 200-220°C, Zone 4: 210-230°C, Die head: 200-220°C. For PA/LDPE blends, zones 3-4 are increased by 10-20°C to 230-240°C.</p>
+
+        <h3>4.2. Flat die and net formation</h3>
+        <p>The die design has channels forming a cellular structure. The melt distributes across the width (500-2000 mm) and is extruded through a die with alternating longitudinal and transverse slots. Mesh size: 10x10, 20x20, or 50x50 mm square or diamond. Thread thickness 1-3 mm, thread width 2-5 mm. Die head pressure at MFI 1.5-2.5: 50-100 bar.</p>
+
+        <h3>4.3. Cooling and draw ratio</h3>
+        <p>The net passes over cooling rolls (20-40°C, 3-4 rolls). Draw ratio (orientation) 1:2 to 1:4. Strength increases by 30-50%, elasticity decreases.</p>
+
+        <h2>5. Quality control</h2>
+        <ul>
+            <li>Mesh size – optical sensor, tolerance ±5%.</li>
+            <li>Thread thickness – laser micrometer, tolerance ±0.1 mm for 2 mm thread.</li>
+            <li>Tensile strength (100 mm strip) – min. 200 N.</li>
+            <li>Elongation at break – 50-150%.</li>
+        </ul>
+
+        <h2>6. UV stabilization</h2>
+        <p>Black net (carbon black 1-2%): service life 10-20 years. Colored net (HALS 0.5-1%): 5-10 years. UV chamber test (1000 h, ISO 4892-3): max 30% strength loss.</p>
+
+        <h2>7. Advantages of PA/LDPE granulate from sausage casing</h2>
+        <p>PA/LDPE granulate increases stiffness (modulus from 600 to 800-1000 MPa) and wear resistance (2-3 times). Optimal dosage 10-15%.</p>
+
+        <h2>8. Typical defects</h2>
+        <ul>
+            <li><strong>Mesh rupture:</strong> too little LDPE (<5%) or too high draw ratio (>1:4). Solution: increase LDPE to 10-15%, reduce draw ratio to 1:2.</li>
+            <li><strong>Uneven mesh:</strong> low MFI of the blend. Solution: add 10-20% LLDPE.</li>
+            <li><strong>Net sticking to rolls:</strong> insufficient cooling or missing slip agent. Solution: reduce roll temperature to 20°C, add erucamide 0.3-0.5%.</li>
+            <li><strong>Yellowing after 1-2 years:</strong> insufficient UV stabilization. Solution: add 2% carbon black or 1% HALS.</li>
+        </ul>
+
+        <h2>9. Low-frequency keywords (embedded)</h2>
+        <div class="info-block">
+            <p>✓ garden netting from HDPE recyclate flat die extrusion technology<br>
+            ✓ agro-canister preparation shredding washing pelletizing<br>
+            ✓ recycled LLDPE from stretch film for flow improvement MFI 1.5-2.5<br>
+            ✓ PA/LDPE granulate from sausage casing in garden netting dosage 10-15 percent<br>
+            ✓ draw ratio of recycled garden netting on calenders 1 to 2-1 to 4<br>
+            ✓ mesh size 20x20 mm optical control tolerance 5 percent<br>
+            ✓ UV stabilization with carbon black 1-2 percent service life 10-20 years</p>
+        </div>
+
+        <h2>10. Conclusion</h2>
+        <p>Garden netting production from recycled polymers is economically viable. The proper blend of HDPE with LDPE (5-15%), LLDPE (10-20%), and PA/LDPE granulate (10-15%) ensures the optimal balance of stiffness, elasticity, and service life. Controlling the blend MFI in the range of 1.5-2.5 ensures stable die head pressure of 50-100 bar. UV stabilization with 1-2% carbon black guarantees 10-20 years of service life.</p>
+
+        <footer>© Igor Kryazhev – Polymer Processing Technology Consulting, 2026</footer>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const buttons = document.querySelectorAll('.lang-btn');
+        const panels = document.querySelectorAll('.lang-panel');
+        
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                panels.forEach(panel => panel.classList.remove('active-panel'));
+                const activePanel = document.getElementById(`lang-${lang}`);
+                if (activePanel) activePanel.classList.add('active-panel');
+            });
+        });
+    })();
+</script>
+</body>
+</html>
