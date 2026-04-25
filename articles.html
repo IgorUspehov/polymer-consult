@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wissensbasis | Ihor Kryazhev — Polymer Recycling Consultant</title>
+<meta name="description" content="Technische Artikel über Extrusion, Recycling von LDPE, HDPE, PP, LLDPE. Praxiswissen von Ihor Kryazhev — 25+ Jahre Erfahrung.">
+<style>
+  :root {
+    --bg: #0d1b35;
+    --bg2: #1a2a4a;
+    --accent: #e8690a;
+    --text: #fff;
+    --muted: #8aa0c0;
+    --card: #1e3050;
+    --card-hover: #243860;
+    --green: #25d366;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 40px;
+    background: var(--bg2);
+    border-bottom: 1px solid #2a4060;
+    position: sticky; top: 0; z-index: 100;
+  }
+  nav a.logo {
+    font-weight: 700; font-size: 17px; color: var(--text);
+    text-decoration: none; display: flex; align-items: center; gap: 10px;
+  }
+  nav a.logo span { color: var(--accent); }
+  nav .nav-links { display: flex; gap: 24px; align-items: center; }
+  nav .nav-links a {
+    color: var(--muted); text-decoration: none; font-size: 14px;
+    transition: color .2s;
+  }
+  nav .nav-links a:hover { color: var(--text); }
+  nav .nav-links a.btn {
+    background: var(--accent); color: #fff; padding: 8px 18px;
+    border-radius: 6px; font-weight: 600;
+  }
+  nav .nav-links a.btn:hover { background: #d45c08; }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 64px 20px 48px;
+    background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+    border-bottom: 1px solid #2a4060;
+  }
+  .hero h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; margin-bottom: 12px; }
+  .hero h1 span { color: var(--accent); }
+  .hero p { color: var(--muted); font-size: 16px; max-width: 580px; margin: 0 auto 28px; line-height: 1.6; }
+  .stats { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat .n { font-size: 28px; font-weight: 800; color: var(--accent); }
+  .stat .l { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+  /* FILTER */
+  .filters {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    justify-content: center;
+    padding: 32px 20px 16px;
+  }
+  .filter-btn {
+    padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 600;
+    cursor: pointer; border: 1px solid #2a4060;
+    background: transparent; color: var(--muted);
+    transition: all .2s;
+  }
+  .filter-btn:hover { border-color: var(--accent); color: var(--text); }
+  .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .search-wrap {
+    max-width: 520px; margin: 0 auto 8px; padding: 0 20px;
+  }
+  .search-wrap input {
+    width: 100%; padding: 12px 18px; border-radius: 8px;
+    background: var(--card); border: 1px solid #2a4060;
+    color: var(--text); font-size: 15px; outline: none;
+    transition: border-color .2s;
+  }
+  .search-wrap input:focus { border-color: var(--accent); }
+  .search-wrap input::placeholder { color: var(--muted); }
+
+  /* GRID */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+    max-width: 1200px;
+    margin: 24px auto;
+    padding: 0 20px 60px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid #2a4060;
+    border-radius: 10px;
+    padding: 20px;
+    text-decoration: none;
+    color: var(--text);
+    display: flex; flex-direction: column; gap: 10px;
+    transition: background .2s, border-color .2s, transform .15s;
+  }
+  .card:hover {
+    background: var(--card-hover);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .card-top { display: flex; gap: 10px; align-items: flex-start; }
+  .lang-badge {
+    font-size: 11px; font-weight: 700; padding: 3px 8px;
+    border-radius: 4px; text-transform: uppercase; flex-shrink: 0; margin-top: 2px;
+  }
+  .lang-de { background: #1a3a6a; color: #6aadff; }
+  .lang-en { background: #1a4a2a; color: #5dce7a; }
+  .lang-ru { background: #3a1a2a; color: #e88aaa; }
+  .card-title { font-size: 14px; font-weight: 600; line-height: 1.5; color: var(--text); }
+  .card-arrow { margin-top: auto; font-size: 13px; color: var(--accent); font-weight: 600; }
+
+  .no-results {
+    text-align: center; color: var(--muted); padding: 60px 20px;
+    grid-column: 1/-1; font-size: 16px;
+  }
+
+  /* CTA BOTTOM */
+  .cta-section {
+    background: var(--bg2);
+    border-top: 1px solid #2a4060;
+    text-align: center;
+    padding: 56px 20px;
+  }
+  .cta-section h2 { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+  .cta-section p { color: var(--muted); font-size: 15px; margin-bottom: 28px; line-height: 1.6; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .cta-btns a {
+    padding: 13px 28px; border-radius: 8px;
+    text-decoration: none; font-weight: 700; font-size: 15px;
+  }
+  .btn-wa { background: var(--green); color: #fff; }
+  .btn-main { background: var(--accent); color: #fff; }
+  .btn-mail { background: transparent; color: var(--muted); border: 1px solid #2a4060; }
+
+  @media(max-width:600px){
+    nav { padding: 12px 16px; }
+    .hero { padding: 40px 16px 32px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="https://igoruspehov.github.io/polymer-consult/">
+    ← <span>Ihor Kryazhev</span>
+  </a>
+  <div class="nav-links">
+    <a href="https://igoruspehov.github.io/polymer-consult/">Hauptseite</a>
+    <a href="https://wa.me/4915258400610" class="btn">&#128172; WhatsApp</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Wissensbasis <span>Polymer-Recycling</span></h1>
+  <p>Technische Artikel aus 25+ Jahren Praxis mit Extrusionsanlagen — LDPE, LLDPE, HDPE, PP, Mehrschichtfolien</p>
+  <div class="stats">
+    <div class="stat"><div class="n">91</div><div class="l">Artikel</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">Sprachen</div></div>
+    <div class="stat"><div class="n">25+</div><div class="l">Jahre Praxis</div></div>
+  </div>
+</div>
+
+<div class="search-wrap">
+  <input type="text" id="search" placeholder="Suchen: HDPE, MFI, Filtration, Schmelze...">
+</div>
+
+<div class="filters">
+  <button class="filter-btn active" data-lang="all">Alle</button>
+  <button class="filter-btn" data-lang="de">🇩🇪 Deutsch</button>
+  <button class="filter-btn" data-lang="en">🇬🇧 English</button>
+  <button class="filter-btn" data-lang="ru">🇷🇺 Русский</button>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<div class="cta-section">
+  <h2>Problem nicht gelöst?</h2>
+  <p>Ich helfe direkt — Analyse, Einstellung, Rezeptur.<br>Online oder vor Ort in Deutschland, Europa, CIS.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/4915258400610" class="btn-wa">&#128172; WhatsApp schreiben</a>
+    <a href="https://igoruspehov.github.io/polymer-consult/" class="btn-main">→ Zur Beratungsseite</a>
+    <a href="mailto:uspeh.polimer2022@gmail.com" class="btn-mail">✉ E-Mail</a>
+  </div>
+</div>
+
+<script>
+const BASE = "https://igoruspehov.github.io/kryazhev-extruder/";
+
+const ARTICLES = [
+  {f:"100-percent-recyclate-compounding.html",t:"100% Rezyklat in der Kunststoffverarbeitung: Compoundierung ohne Primärmaterial",l:"de"},
+  {f:"agglomeration-LDPE-film.html",t:"Агломерация пленочных отходов LDPE и LLDPE: технология и настройка",l:"ru"},
+  {f:"agglomeration-guide.html",t:"Agglomeration von Stretchfolie (LLDPE)",l:"de"},
+  {f:"agricultural-ldpe-llpe-mfi.html",t:"LDPE Recycling aus der Landwirtschaft – Unterschiedlicher MFI von dicken und dünnen Schichten",l:"de"},
+  {f:"article-caps-separation-de.html",t:"PET-Deckel Recycling: HDPE & PP Trennung",l:"de"},
+  {f:"article-caps-separation-en.html",t:"PET Cap Recycling: HDPE & PP Separation",l:"en"},
+  {f:"article-caps-separation-ru.html",t:"Переработка крышек ПЭТ: разделение HDPE и PP",l:"ru"},
+  {f:"article-filtration-vacuum-de.html",t:"Filtration und Entgasung beim Extruder",l:"de"},
+  {f:"article-filtration-vacuum-en.html",t:"Filtration and Degassing in Extrusion",l:"en"},
+  {f:"article-filtration-vacuum-ru.html",t:"Фильтрация и дегазация в экструдере",l:"ru"},
+  {f:"article-hdpe-pcr-de.html",t:"HDPE 50% PCR Rezepturen",l:"de"},
+  {f:"article-hdpe-pcr-en.html",t:"HDPE 50% PCR Formulations",l:"en"},
+  {f:"article-hdpe-pcr-ru.html",t:"Рецептуры вторичного HDPE с 50% PCR",l:"ru"},
+  {f:"article-metal-separation-de.html",t:"Metallseparation aus Polymerabfällen",l:"de"},
+  {f:"article-metal-separation.html",t:"Metallseparation aus Polymerabfällen | Ihor Kryazhev",l:"ru"},
+  {f:"article-pid-extruder-de.html",t:"PID-Regelung für Extruder",l:"de"},
+  {f:"article-pid-extruder-en.html",t:"PID Control for Extrusion",l:"en"},
+  {f:"article-pid-extruder-ru.html",t:"ПИД-регулирование экструдера",l:"ru"},
+  {f:"article-pp-bags-recycling-de.html",t:"Recycling von PP-Säcken und Big-Bags",l:"de"},
+  {f:"article-pp-bags-recycling-en.html",t:"PP Bag & Big-Bag Recycling",l:"en"},
+  {f:"article-pp-bags-recycling-ru.html",t:"Переработка ПП-мешков и биг-бэгов: контроль MFI и фильтрация",l:"ru"},
+  {f:"article-stretch-mfi-de.html",t:"Stretchfolie zu Spritzguss-Granulat (MFI 4–8)",l:"de"},
+  {f:"article-stretch-mfi-en.html",t:"Stretch Film to Injection Grade (MFI 4–8)",l:"en"},
+  {f:"article-stretch-mfi-ru.html",t:"Переработка стрейч-пленки в литьевую гранулу (MFI 4–8)",l:"ru"},
+  {f:"article-vfd-modbus-de.html",t:"Frequenzumrichter-Steuerung über Modbus TCP",l:"de"},
+  {f:"article-vfd-modbus-en.html",t:"VFD Control via Modbus TCP",l:"en"},
+  {f:"article-vfd-modbus-ru.html",t:"Modbus TCP управление частотником",l:"ru"},
+  {f:"article-vibration-knives-ru.html",t:"Вибродиагностика и контроль износа ножей",l:"ru"},
+  {f:"bristle-llDPE-coating.html",t:"Щетинистые покрытия из стрейч-пленки LLDPE",l:"ru"},
+  {f:"chalk-LLDPE-compatibility-guide.html",t:"Kreide und LLDPE – Kompatibilität, Anwendungen und optimale Dosierung",l:"de"},
+  {f:"chalk-lldpe.html",t:"Kreide + LLDPE: Compoundierung und Extrusion",l:"de"},
+  {f:"chiller-sizing-extruder-calculation.html",t:"Chiller-Auslegung für Extruder: Formel zur Berechnung der Kühlleistung",l:"de"},
+  {f:"curb-tape-ru.html",t:"Лента бордюрная для клумб: сырьё ПП, ПНД, ПВД. Экструзия и намотка",l:"ru"},
+  {f:"dessicant-production.html",t:"Herstellung von Feuchtigkeitsabsorbern (CaO + LLDPE)",l:"de"},
+  {f:"extruder-critical-issues-ol-jam-screen-break-vacuum.html",t:"Kritische Extruderprobleme: Überlast, Schneckenklemmung, Siebriss, Vakuumverlust",l:"de"},
+  {f:"extruder-screw-wear-diagnosis.html",t:"Verschleiß der Extruderschnecke – prüfen ohne Demontage",l:"de"},
+  {f:"extruder-temperature-profile-pe-pp.html",t:"Temperaturprofile im Extruder für LDPE, HDPE, PP",l:"de"},
+  {f:"extrusion-problems-recycling.html",t:"Typische Probleme bei der Extrusion von LDPE- und HDPE-Recyclingmaterial",l:"de"},
+  {f:"extrusion-temperature-profiles-pe-pp.html",t:"Temperaturprofile für die Extrusion von LDPE, LLDPE, HDPE und PP",l:"de"},
+  {f:"film-sticking-to-chill-roll.html",t:"Folie klebt an Kühlwalze: Ursachen und Lösungen für PP, PE und ABS",l:"de"},
+  {f:"fish-eye-film-recycled-polymers.html",t:"Fischaugen in Folie aus Rezyklaten: Ursachen und Beseitigung",l:"de"},
+  {f:"flat-die-cooling-system.html",t:"Kühlsysteme für die Flachfolienextrusion",l:"de"},
+  {f:"flat-die-extrusion-cooling-system.html",t:"Kühlsystem für Flachfolienextrusionslinien: Kühlwalzen, Chiller, Prozesssteuerung",l:"de"},
+  {f:"gels-at-extruder-die-causes-remedies.html",t:"Gele am Extruderaustritt – Ursachen und Beseitigung",l:"de"},
+  {f:"granulation-comparison.html",t:"Granulationstechnologien: Strang vs. Unterwasser",l:"de"},
+  {f:"hdpe-bottles-recycling.html",t:"Флаконы HDPE: от шампуня до садовых решеток и ящиков",l:"ru"},
+  {f:"hdpe-bubble-instability-stabilization.html",t:"HDPE Blaseninstabilität beim Folienblasen – Ursachen und Stabilisierung",l:"de"},
+  {f:"hdpe-cannister-migration-substances.html",t:"Recycling von HDPE-Kanistern – Welche Stoffe wandern ins HDPE?",l:"de"},
+  {f:"hdpe-chalk-filled-recycling-limits.html",t:"Recycling von HDPE mit Kreidefüllstoff – Filtration und MFI: praktische Grenzen",l:"de"},
+  {f:"hdpe-chalk-filtration-mfi-limits.html",t:"HDPE mit Kreidefüllstoff – Filtration und MFI: Praktische Grenzen (100% Rezyklat)",l:"de"},
+  {f:"hdpe-chalk-filtration.html",t:"HDPE mit Kreidefüllstoff – Einfluss auf Viskosität und Filteroptimierung",l:"de"},
+  {f:"hdpe-detergent-residue-mfi-test.html",t:"HDPE Kanister – Waschmittelreste verändern den MFI: Prüfung vor der Verarbeitung",l:"de"},
+  {f:"hdpe-ldpe-mfi-blend-calculation.html",t:"Berechnung des MFI von HDPE/LLDPE-Mischungen: Kompatibilität und Eigenschaften",l:"de"},
+  {f:"increasing-temperature-low-mfi-ldpe.html",t:"Temperaturerhöhung bei LDPE mit niedrigem MFI: Strategien, Risiken, Alternativen",l:"de"},
+  {f:"ldpe-foaming-extruder-causes.html",t:"Warum schäumt LDPE im Extruder? Ursachen, Diagnose und Behebung",l:"de"},
+  {f:"ldpe-llpe-melt-stabilization-raw-material-switch.html",t:"LDPE/LLDPE gemischt – Schmelzestabilisierung beim Rohstoffwechsel",l:"de"},
+  {f:"ldpe-recycling-mfi-changes.html",t:"LDPE Recycling: MFI ändert sich im Extruder – Ursachen und Lösungen",l:"de"},
+  {f:"ldpe-thin-film-30-40-micron-llpde-ratio.html",t:"LDPE für dünne Folien (30–40 µm) – Ohne LLDPE funktioniert es nicht",l:"de"},
+  {f:"ldpe-transport-film-pi-vs-pc-mfi.html",t:"LDPE-Transportfolien – Post-Industrial vs. Post-Consumer: Unterschiede im MFI",l:"de"},
+  {f:"lldpe-stretch-film-recycling.html",t:"LLDPE Stretchfilm Recycling – Regranulat Produktion",l:"de"},
+  {f:"melt-stabilization-raw-material-switch.html",t:"Schmelzestabilisierung beim Rohstoffwechsel LDPE/LLDPE",l:"de"},
+  {f:"mixed-ldpe-lldpe-melt-stabilization.html",t:"Gemischtes LDPE/LLDPE – Stabilisierung der Schmelze bei wechselnder Rohstoffqualität",l:"de"},
+  {f:"modbus-pid-extruder-control.html",t:"Modbus TCP Python PID-Regler für Extrudersteuerung",l:"de"},
+  {f:"motor-comparison.html",t:"Antriebstechnik: DC vs AC + VFD",l:"de"},
+  {f:"plastic-washing-line-contaminated.html",t:"Мойка и предварительная обработка загрязнённых полимерных отходов",l:"ru"},
+  {f:"post-consumer-ldpe-lldpe-pressure-fluctuations.html",t:"Post-Consumer LDPE/LLDPE – Warum der Druck im Kopf von Charge zu Charge schwankt",l:"de"},
+  {f:"post-industrial-vs-post-consumer-transport-films.html",t:"LDPE-Transportfolien – Unterschiede zwischen Post-Industrial und Post-Consumer",l:"de"},
+  {f:"postconsumer-ldpe-llpe-pressure-mfi.html",t:"Post-Consumer LDPE/LLDPE – Druck und MFI schwanken von Charge zu Charge",l:"de"},
+  {f:"predictive-maintenance.html",t:"Predictive Maintenance: Granulierlinie & KI",l:"de"},
+  {f:"recycled-hdpe-pellet-quality-yellow-bubbles-smell.html",t:"Qualität von HDPE-Rezyklatgranulat: gelbe Pellets, Blasen, Brandgeruch",l:"de"},
+  {f:"recycled-llDPE-stretch-film-dullness.html",t:"Recyceltes LLDPE-Stretchgranulat matt statt glänzend – Ursachen und Abhilfe",l:"de"},
+  {f:"recycled-plastic-lab-control.html",t:"Qualitätskontrolle von Recyclaten im Labor: MFI, Aschegehalt, Feuchte",l:"de"},
+  {f:"recycling-100pc-ldpe-mfi-direction-change.html",t:"100% LDPE-Recycling – Warum sich der MFI im Extruder ändert",l:"de"},
+  {f:"recycling-hdpe-chalk-clogs-screens-mesh-size.html",t:"HDPE-Recycling – Kreide verstopft die Siebe: Maschenweite richtig wählen",l:"de"},
+  {f:"recycling-lldpe-stretch-film-ink-filtration.html",t:"LLDPE-Stretchfolie – Filterung von Druckfarbe ohne Produktionsstopp",l:"de"},
+  {f:"rotary-granulator-plastic-crusher.html",t:"Роторные ножевые дробилки для вторичных полимеров: выбор и настройка",l:"ru"},
+  {f:"rotomolding-LLDPE.html",t:"Ротоформовка LLDPE: септики, баки из вторичного сырья",l:"ru"},
+  {f:"rotomolding-llDPE-septic-tanks.html",t:"Rotationsformen von Klärgruben und Tanks aus recyceltem LLDPE",l:"de"},
+  {f:"secondary-polymer-recycling-strategies.html",t:"Recycling von Sekundärkunststoffen: Handsortierung, Compound, 100% Rezyklat",l:"de"},
+  {f:"shading-net-hdpe-recyclate.html",t:"Schattennetze aus HDPE-Rezyklat: Technologie mit LLDPE- und LDPE-Zusatz",l:"de"},
+  {f:"strand-underwater-pelletizer.html",t:"Грануляторы для вторичных полимеров: стренговые и подводные",l:"ru"},
+  {f:"stretch-film-ink-filtration.html",t:"LLDPE-Stretchfolie – Filterung von Druckfarben ohne Produktionsstopp",l:"de"},
+  {f:"thin-film-recycling-ldpe-without-lldpe-impossible.html",t:"LDPE für dünne Folien (30–40 µm) – Ohne LLDPE unmöglich",l:"de"},
+  {f:"twin-screw-dryer-lime-ru.html",t:"Двухшнековые экструдеры: осушитель на основе извести и LLDPE",l:"ru"},
+  {f:"twin-screw-extruder-recycling.html",t:"Двухшнековые экструдеры для вторичных полимеров: настройка, дегазация, фильтрация",l:"ru"},
+  {f:"twin-screw-temperature-profile-hdpe-cans.html",t:"Temperaturprofil für Doppelschneckenextruder bei HDPE-Kanisterrecycling",l:"de"},
+  {f:"underwater-vs-hot-die-face-pelletizing.html",t:"Unterwassergranulation vs. Heißabschlag an der Düse für Rezyklate",l:"de"},
+  {f:"uv-stabilization-carbon-black.html",t:"UV-Stabilisierung von Recyclingkunststoffen: HALS, Carbon Black",l:"de"},
+  {f:"vfd-soft-start-extruder.html",t:"Sanftanlauf von Extrudern mit Frequenzumrichter: Linux Modbus TCP",l:"de"},
+  {f:"vfd-soft-start-linux.html",t:"Sanftanlauf des Extrudermotors mit Frequenzumrichter und Linux-Steuerung",l:"de"},
+];
+
+let activeLang = 'all';
+let searchQ = '';
+
+function render() {
+  const grid = document.getElementById('grid');
+  const filtered = ARTICLES.filter(a => {
+    const langOk = activeLang === 'all' || a.l === activeLang;
+    const q = searchQ.toLowerCase();
+    const textOk = !q || a.t.toLowerCase().includes(q) || a.f.toLowerCase().includes(q);
+    return langOk && textOk;
+  });
+
+  if (!filtered.length) {
+    grid.innerHTML = '<div class="no-results">Keine Artikel gefunden / No articles found</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(a => `
+    <a class="card" href="${BASE}${a.f}" target="_blank" rel="noopener">
+      <div class="card-top">
+        <span class="lang-badge lang-${a.l}">${a.l}</span>
+        <span class="card-title">${a.t}</span>
+      </div>
+      <div class="card-arrow">Artikel lesen →</div>
+    </a>
+  `).join('');
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeLang = btn.dataset.lang;
+    render();
+  });
+});
+
+document.getElementById('search').addEventListener('input', e => {
+  searchQ = e.target.value;
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
