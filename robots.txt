@@ -1,0 +1,1 @@
+User-agent: *\nSitemap: https://igoruspehov.github.io/polymer-consult/sitemap.xml
